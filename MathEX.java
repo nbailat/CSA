@@ -1,5 +1,4 @@
-
-    public class MathEX {
+public class MathEX {
         public static void main(String [] args){
         System.out.println(swap(123));
         System.out.println(swap(246));
@@ -21,7 +20,14 @@
         
         System.out.println( hours + " hours " + minutes + " mins" );   
         }
-        
+        public static int dayOfWeek(int Jan1, int date){
+        int Jan1= date%7+1
+        int date= Jan1/7
+
+        }
 
 
-    }
+        }
+
+
+    
