@@ -2,6 +2,7 @@ public class Conditionals {
 
     public static void main(String [] args){
         Conditionals condition = new Conditionals();
+        System.out.println("trouble chimp");
         System.out.println(condition.chimpTrouble(true, true));
         System.out.println(condition.chimpTrouble(false, false));
         System.out.println(condition.chimpTrouble(true, false));
@@ -79,16 +80,32 @@ public class Conditionals {
         return isMorning;
     }
     public String setAlarm(int d, boolean vaycay){
-        if (vaycay == true){
+        if ((vaycay == true) && d==0 || d==6){
             return "Off";
-        } else if (d==0 || d==6){ 
+        } if ((vaycay == true) && d>0 && d<6){ 
             return "10:00";
-        }
+        } if (vaycay == false && d==0 || d==6)
+            return "10:00";
             return "7:00";     
     }
-    public int onesDigitSame(int fst, int snd, int trd){
-        int onesfst = x%10*10;
-        int onessnd = x%10*10;
-        int onestrd = x%10*10;
+    public boolean onesDigitSame(int fst, int snd, int trd){
+        int onesfst = fst%10*10;
+        int onessnd = snd%10*10;
+        int onestrd = trd%10*10;
+
+        if (((onesfst == onessnd) || onessnd == onestrd) || onesfst == onestrd){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public int blackjack(int card1, int card2){
+        if (((card1 <= 21) && card1 >= card2) || card2 > 21){
+            return card1;
+        }
+        else if (((card2 <= 21) && card2 > card1) || card1 > 21){
+            return card2;
+        } 
+            return 0;
     }
 }
