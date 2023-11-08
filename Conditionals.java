@@ -57,30 +57,29 @@ public class Conditionals {
         System.out.println();
     }
     public boolean chimpTrouble(boolean aSmile, boolean bSmile){
-        if ((aSmile == true && bSmile == true) || aSmile == false && bSmile == false){
+        if (aSmile == bSmile){
             return true;
         } else {
             return false;
         }
     }
-    public int negPos(int x, int y, boolean negative){
-        if (((x < 0) == negative == true || y < 0) == negative == true){
-            return x*y;
-        } else {
-            return x*y*-1;
-        }
-    }
-    public boolean pickUpPhone(boolean isMorning, boolean isMom, boolean isAsleep){
-        if ((isMorning == true && isMom == false)  || isAsleep == true){
-            return false;    
-        } if (isAsleep == false && isMorning == true && isMom == true){
+    public boolean negPos(int x, int y, boolean negative){
+        if ((negative == true) && x < 0 && y < 0){
             return true;
-
+        } else if (((negative == false) && x*y < 0)){
+            return true;
         }
-        return isMorning;
+            return false;
+        }
+    
+    public boolean pickUpPhone(boolean isMorning, boolean isMom, boolean isAsleep){
+        if ((isAsleep == true) || isMorning == true && isMom != true){
+            return false;    
+        } 
+        return true;
     }
     public String setAlarm(int d, boolean vaycay){
-        if ((vaycay == true) && d==0 || d==6){
+        if (vaycay == true && d==0 || d==6){
             return "Off";
         } if ((vaycay == true) && d>0 && d<6){ 
             return "10:00";
@@ -100,10 +99,10 @@ public class Conditionals {
         }
     }
     public int blackjack(int card1, int card2){
-        if (((card1 <= 21) && card1 >= card2) || card2 > 21){
+        if (((card1 <= 21) && card1 >= card2) || card2 > 21 && card1 <= 21){
             return card1;
         }
-        else if (((card2 <= 21) && card2 > card1) || card1 > 21){
+        else if (((card2 <= 21) && card2 > card1) || card1 > 21 && card2 <= 21){
             return card2;
         } 
             return 0;
