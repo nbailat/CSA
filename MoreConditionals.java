@@ -8,10 +8,16 @@ public class MoreConditionals {
     }
 
     public boolean isSooner(int month1, int day1, int year1, int month2, int day2, int year2){
-        if (((year1 < year2) || month1 < month2) || day1 < day2){
+        if ((year1 < year2)){
             return true;
-        } 
+        } else if((( year1 == year2) && month1 < month2)){
+            return true;
+        }
             return false;
+    }
+
+    public int findBestFit(int space, int size1, int size2){
+        
     }
     public static void main(String [] args){
         MoreConditionals ce = new MoreConditionals();
