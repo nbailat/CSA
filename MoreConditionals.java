@@ -8,17 +8,33 @@ public class MoreConditionals {
     }
 
     public boolean isSooner(int month1, int day1, int year1, int month2, int day2, int year2){
-        if ((year1 < year2)){
+        if (year1 < year2){
             return true;
-        } else if((( year1 == year2) && month1 < month2)){
+        } else if((year1 == year2) && month1 < month2){
+            return true;
+        } else if (((year1 == year2) && month1 == month2) && day1 < day2){
             return true;
         }
             return false;
     }
 
     public int findBestFit(int space, int size1, int size2){
-        
-    }
+        if (size1 > space && size2 > space){
+            return 0;
+        } else if ((((size1 > size2) && size1 <= space) || size2 > space) || size1 == size2){
+            return 1;
+        } else if (size1 + size2 < space){
+            return 3;
+        }
+            return 2;
+        }
+    public boolean makeBenches(int small, int big, int goal){
+        if ((small + (big*5) >= goal) && (goal%(big*5+small) == 0 || goal%(big*5+small) == 1 || goal%5 == 0)){
+            return true;
+        } else if (goal%(big*5+small) == goal)
+            return false;
+            return false;
+        }
     public static void main(String [] args){
         MoreConditionals ce = new MoreConditionals();
         System.out.println("isLeapYear");
@@ -41,28 +57,29 @@ public class MoreConditionals {
         System.out.println("4/8/2010 is sooner than 1/2/2010 " + ce.isSooner(4,8,2010, 1,2,2010));
         System.out.println();
 
-    // Best Fit
-    //ystem.out.println("Best Fit");
-    //System.out.println("Find Best fit 6 2 3 is " + ce.findBestFit(6,2,3));
-    //System.out.println("Find Best fit 6 4 3 is " + ce.findBestFit(6,4,3));
-    //System.out.println("Find Best fit 6 3 4 is " + ce.findBestFit(6,3,4));
-    //System.out.println("Find Best fit 1 2 3 is " + ce.findBestFit(1,2,3));
-    //System.out.println("Find Best fit 4 6 3 is " + ce.findBestFit(4,6,3));
-    //System.out.println("Find Best fit 4 3 6 is " + ce.findBestFit(4,3,6));
-    //System.out.println("Find Best fit 4 3 3 is " + ce.findBestFit(4,3,3));
-    //System.out.println("Find Best fit 4 4 3 is " + ce.findBestFit(4,4,3));
+    
+        System.out.println("Best Fit");
+        System.out.println("Find Best fit 6 2 3 is " + ce.findBestFit(6,2,3));
+        System.out.println("Find Best fit 6 4 3 is " + ce.findBestFit(6,4,3));
+        System.out.println("Find Best fit 6 3 4 is " + ce.findBestFit(6,3,4));
+        System.out.println("Find Best fit 1 2 3 is " + ce.findBestFit(1,2,3));
+        System.out.println("Find Best fit 4 6 3 is " + ce.findBestFit(4,6,3));
+        System.out.println("Find Best fit 4 3 6 is " + ce.findBestFit(4,3,6));
+        System.out.println("Find Best fit 4 3 3 is " + ce.findBestFit(4,3,3));
+        System.out.println("Find Best fit 4 4 3 is " + ce.findBestFit(4,4,3));
+        System.out.println();
 
-
-    // Make Bench
-    //System.out.println("Make benches 3 1 8 is " + ce.makeBenches(3,1,8));
-    //System.out.println("Make benches 3 1 9 is " + ce.makeBenches(3,1,9));
-   //System.out.println("Make benches 11 1 15 is " + ce.makeBenches(11,1,15));
-    //System.out.println("Make benches 4 2 15 is " + ce.makeBenches(4,2,15));
-    //System.out.println("Make benches 20 0 20 is " + ce.makeBenches(20,0,20));
-    //System.out.println("Make benches 3 4 20 is " + ce.makeBenches(3,4,20));
-    //System.out.println("Make benches 0 6 30 is " + ce.makeBenches(0,6,30));
-    //System.out.println("Make benches 0 5 30 is " + ce.makeBenches(0,5,30));
-    //System.out.println("Make benches 2 6 23 is " + ce.makeBenches(2,6,23));
-    //System.out.println("Make benches 3 2 23 is " + ce.makeBenches(3,2,23));
+    
+        System.out.println("Make benches 3 1 8 is " + ce.makeBenches(3,1,8));
+        System.out.println("Make benches 3 1 9 is " + ce.makeBenches(3,1,9));
+        System.out.println("Make benches 11 1 15 is " + ce.makeBenches(11,1,15));
+        System.out.println("Make benches 4 2 15 is " + ce.makeBenches(4,2,15));
+        System.out.println("Make benches 20 0 20 is " + ce.makeBenches(20,0,20));
+        System.out.println("Make benches 3 4 20 is " + ce.makeBenches(3,4,20));
+        System.out.println("Make benches 0 6 30 is " + ce.makeBenches(0,6,30));
+        System.out.println("Make benches 0 5 30 is " + ce.makeBenches(0,5,30));
+        System.out.println("Make benches 2 6 23 is " + ce.makeBenches(2,6,23));
+        System.out.println("Make benches 3 2 23 is " + ce.makeBenches(3,2,23));
+        System.out.println();
 }
 }
