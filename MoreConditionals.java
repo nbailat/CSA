@@ -29,10 +29,9 @@ public class MoreConditionals {
             return 2;
         }
     public boolean makeBenches(int small, int big, int goal){
-        if ((small + (big*5) >= goal) && (goal%(big*5+small) == 0 || goal%(big*5+small) == 1 || goal%5 == 0)){
+        if (small + (big*5) >= goal)
             return true;
-        } else if (goal%(big*5+small) == goal)
-            return false;
+        else
             return false;
         }
     public static void main(String [] args){
