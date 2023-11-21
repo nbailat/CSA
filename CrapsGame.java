@@ -13,17 +13,35 @@ public class CrapsGame
   public int processRoll(int total)
   {
     if (point==0 && (total == 2 || total == 3 || total == 12)){
+      int result = -1;
       return result;
     }
     if (point==0 && (total == 11 || total == 7)){
+      int result = 1;
       return result;
     }
-    else if (point == 0 && (total != 2 || total!= 3 || total!= 12 || total != 11 || total != 7)){
-      return point == total;
+    else if (point == 0 && (total != 2 || total!= 3 || total!= 12 || total != 11 || total != 7)){      
+      point = total;
+      int result = 0;
+      return result; 
     }
-      
+    if (point != 0 && total == point){
+      point = 0;
+      int result = 1;
       return result;
-  }
+    }
+    if (point !=0 && total == 7){
+      point = 0;
+      int result = -1;  
+      return result;
+    }
+    if (point != 0 && total != point && total != 7){
+      int result = 0;
+      return result;
+    }
+    return 0;
+    }
+    
 
   /**
    *  Returns the saved point
@@ -33,11 +51,6 @@ public class CrapsGame
     return point;
   }
 
-  public static void main(String[] args) {
-    Die die = new Die();
-    die.roll();
- System.out.println(die.getNumDots());
-}
 
 }
 
