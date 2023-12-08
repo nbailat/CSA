@@ -5,15 +5,14 @@ public class WhileLoops {
         System.out.println(loop.addOdds(12));
         System.out.println(loop.addOdds(4));
         System.out.println(loop.addOdds(33));
-        System.out.println(loop.howManyYears(120, 150));
-        System.out.println(loop.howManyYears(111.2, 120));
-        System.out.println(loop.howManyYears(111.2, 150));
         System.out.println(loop.sumDigits(73));
         System.out.println(loop.sumDigits(1500000));
         System.out.println(loop.sumDigits(756218));
-        System.out.println(loop.printSum(6));
-        System.out.println(loop.printSum(8));
-        System.out.println(loop.printSum(2));
+        System.out.println(loop.howManyYears(111.2, 120));
+        System.out.println(loop.howManyYears(111.2, 150));
+        loop.printSum(6);
+        loop.printSum(8);
+        loop.printSum(2);
         System.out.println(loop.isPerfectSquare(25));
         System.out.println(loop.isPerfectSquare(45));
         System.out.println(loop.isPerfectSquare(5));
@@ -57,19 +56,31 @@ public class WhileLoops {
     public void printSum(int num){
         int sum = 0;
         int dig = 0;
-        while(num>0){
-            sum = sum+num;
-            dig = num-1;
-            System.out.print(dig + "+");
+        System.out.println("n = " + num);
+        while(dig<num){
+            dig = dig+1;
+            sum = sum+dig;
+            System.out.print(dig);
+            if (dig<num){
+            System.out.print(" + ");     
+           }
         }
-            System.out.println("=" + sum);
+            System.out.println(" = " + sum);
     }
 
     public boolean isPerfectSquare(int n){
+        int sum = 0;
         int dig = 1;
-        while(Math.sqrt(n)){
+        while(n>sum){
+            sum = sum+dig;
             dig = dig+2;
-       
+           
         }    
+        if(sum == n){
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
