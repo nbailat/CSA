@@ -52,14 +52,30 @@ public class ForLoops {
         }
     }
 
-    public void dollarsAndStars(){
-        for (int i =0; i<=7;i++){
+    public static void dollarsAndStars(){
+        for(int i=1; i<=7; i++ ){
             System.out.println();
-            for(int j=12; j>=1; j--){
-                System.out.print("*");
-                }
+            for(int j = 2; j<=i; j++){
+                System.out.print("**");
             }
-        }
+            for(int j= 7; j>=i; j--){
+                System.out.print("$");
+            }
+            for(int j = 14; j>=i*2; j-=2){
+                System.out.print("**");
+            }
+            for(int j = 14; j>=i*2; j-=2){
+                System.out.print("$");
+            }
+            for(int j= 2; j<=i; j++){
+                System.out.print("**");
+            }
+            
+                    
+        }      
     }
+
+}
+
 
 
