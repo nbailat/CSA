@@ -11,14 +11,14 @@ public class Strings{
         System.out.println(negative("0010111001"));
         System.out.println(negative("11111111"));
         
-        /*System.out.println("04/20/2014 becomes " + dateString("04/20/2014"));
+        System.out.println("04/20/2014 becomes " + dateString("04/20/2014"));
         
         System.out.println("04/20/2014 becomes" + dateString2("04/20/2014"));
         System.out.println("4/20/2014 becomes" + dateString2("4/20/2014"));
         System.out.println("04/2/2014 becomes" + dateString2("04/2/2014"));
         System.out.println("4/2/2014 becomes" + dateString2("4/2/2014"));
         
-        System.out.println("\nstartsWith");
+        /*System.out.println("\nstartsWith");
         System.out.println(startsWith("architecture", "arch"));
         System.out.println(startsWith("architecture", "a"));
         System.out.println(startsWith("arch", "architecture"));
@@ -60,8 +60,29 @@ public class Strings{
     }
 
     public static String negative(String r){
-        r.replace( 0, 2);
-        r.replace(1, 0);
-        r.replace(2, 1);
+        String t = r.replace( "0", "2");
+        String i = t.replace("1", "0");
+        String d = i.replace("2", "1");
+        return d;
+    }
+
+    public static String dateString(String i){
+        String b = i.replace("/", "-");
+        return b.substring(3,5)+"-"+b.substring(0,2)+b.substring(5);
+
+    }
+
+    public static String dateString2(String i){
+        String b = i.replace("/", "-");
+        if (b.length() == 10){
+            return " "+b.substring(3,5)+"-"+b.substring(0,2)+b.substring(5);
+        }
+        if (b.length() == 9 && b.indexOf("/")==1){
+            return " "+b.substring(2,4)+"-"+b.substring(0,1)+b.substring(4);
+        }
+        else if(b.length() == 9)
+            return " "+b.substring(4,5)+"-"+b.substring(0,2)+b.substring(4);
+        
+        return " "+b.substring(2,3)+"-"+b.substring(0,1)+b.substring(3);
     }
 }
