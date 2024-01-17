@@ -1,3 +1,5 @@
+import javax.swing.text.html.HTML.Tag;
+
 public class Strings{
     public static void main(String[] args) {
         System.out.println(scroll("Hello World"));
@@ -18,7 +20,7 @@ public class Strings{
         System.out.println("04/2/2014 becomes" + dateString2("04/2/2014"));
         System.out.println("4/2/2014 becomes" + dateString2("4/2/2014"));
         
-        /*System.out.println("\nstartsWith");
+        System.out.println("\nstartsWith");
         System.out.println(startsWith("architecture", "arch"));
         System.out.println(startsWith("architecture", "a"));
         System.out.println(startsWith("arch", "architecture"));
@@ -42,7 +44,7 @@ public class Strings{
         System.out.println(removeTag("<title>Hello World</title> Happy Birthday",
         "title"));
         System.out.println(removeTag("Happy <b>Hello World</b> Birthday", "b"));
-        /* */
+        
     }
 
     public static String scroll(String s){
@@ -77,12 +79,46 @@ public class Strings{
         if (b.length() == 10){
             return " "+b.substring(3,5)+"-"+b.substring(0,2)+b.substring(5);
         }
-        if (b.length() == 9 && b.indexOf("/")==1){
+        if (b.length() == 9 && b.indexOf("-")==1){
             return " "+b.substring(2,4)+"-"+b.substring(0,1)+b.substring(4);
         }
         else if(b.length() == 9)
-            return " "+b.substring(4,5)+"-"+b.substring(0,2)+b.substring(4);
+            return " "+b.substring(3,4)+"-"+b.substring(0,2)+b.substring(4);
         
         return " "+b.substring(2,3)+"-"+b.substring(0,1)+b.substring(3);
+    }
+
+    public static boolean startsWith(String s, String prefix){
+        if (prefix.length()>s.length()){
+            return false;
+        }
+        String n = s.substring(0,prefix.length());
+        if (n.equals(prefix)){
+            return true;
+        }
+            return false;
+    }
+
+    public static boolean endsWith(String s, String suffix){
+        if (suffix.length()>s.length()){
+            return false;
+        }
+        String g = s.substring(s.length()-suffix.length());
+        if (g.equals(suffix)){
+            return true;
+        }
+            return false;
+    }
+
+    public static String removeTag(String s, String t){
+        String g = s.substring(s.indexOf("<"), s.indexOf(">"));
+        String r = s.substring(0, s.indexOf("<"));
+        String i = s.substring(s.indexOf(1+">", s.indexOf("<",2)));
+        String n = s.substring(s.indexOf("<",2));
+        if (g.equals(t) == false);
+        return s;
+        else (){
+        return r + i + n;
+        }
     }
 }
