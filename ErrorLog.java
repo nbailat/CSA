@@ -17,10 +17,11 @@ public class ErrorLog {
 	public boolean containsKey(String keyword) {
 		String desc = getDescription();
 		String n = desc.substring(0,keyword.length());
-		if (n.equals(keyword) && desc.indexOf(keyword+" ") != -1 || ){
+		String g = desc.substring(desc.length()-keyword.length());
+		if (n.equals(keyword) && desc.indexOf(keyword+" ") != -1 || n.equals(""+keyword+"") || g.equals(keyword) && desc.indexOf(" "+keyword) != -1){
 		return true;
 		}/*all you need to do is account for only one space at the front and no spaces*/
-		else if(desc.indexOf(" "+keyword+" ") != -1){
+		else if(desc.indexOf(" "+keyword+" ") != -1 ){
 		return true;
 		}
 
