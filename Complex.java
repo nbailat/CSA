@@ -5,12 +5,25 @@ public class Complex {
     public static void main(String [] args){
         Complex d = new Complex(2, 3);
         Complex e = new Complex(4,1);
+
+        Complex f = new Complex(4.3, 5.3);
+        Complex g = new Complex(5.5,6.24);
+
+        Complex h = new Complex(0.0, 4);
+        Complex i = new Complex(-3, -4);
+        
         System.out.println(d.abs());
-        System.out.println(d.abs());
+        System.out.println(e.abs());
         System.out.println(e.add(d));
-        System.out.println(d.add(e));
+        System.out.println(f.add(g));
+        System.out.println(h.add(i));
         System.out.println(d.multiply(e));
-        System.out.println(e.multiply(d));
+        System.out.println(f.multiply(g));
+        System.out.println(h.multiply(i));
+        System.out.println(e.add(-3.0));
+        System.out.println(h.add(7.0));
+        System.out.println(d.multiply(2));
+        System.out.println(f.multiply(-4.0));
 
     }
 
@@ -32,7 +45,9 @@ public class Complex {
         Complex v = new Complex(this.num+other.num,this.inum+other.inum);
         return v;
     }
-
+    public Complex add(double num){
+        return new Complex((this.num+num),(inum));
+    }
     public String toString(){
         return num + " + " + inum + "i";
     }
@@ -40,26 +55,16 @@ public class Complex {
     public Complex multiply(Complex other){
         double f = this.num*other.num;
         double g = this.num*other.inum;
-        double h = other.num*this.num;
-        double j = other.num*this.inum;
+        double h = this.inum*other.num;
+        double j = this.inum*other.inum*-1;
 
-        Complex x = new Complex(f+h,g+j);
+        Complex x = new Complex(f+j,h+g);
         return x;
     }
 
-    public Complex multiply(double num2, double inum2){
-        double f = this.num*other.num;
-        double g = this.num*other.inum;
-        double h = other.num*this.num;
-        double j = other.num*this.inum;
-
-        Complex x = new Complex(f+h,g+j);
-        return x;
+    public Complex multiply(double k){
+        return new Complex((this.num*k),(this.inum*k));
     }
 
-    public Complex add(double other){
-        double v = this.num+other.num;
-        double b = this.inum+other.inum;
-        return v + "+" + b;
-    }
+    
 }
