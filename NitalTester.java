@@ -52,20 +52,14 @@ public class NitalTester {
      * Postcondition: arr2D is unchanged.
      */
     public static int [] getColumn(int[][] arr2D, int c){
-        int []column = new int [arr2D[0].length];
+        int []column = new int [arr2D[c].length];
         int j = 0;
 
 		for (int r=0; r<arr2D.length; r++){
-            for (int c2=0; c2<arr2D[0].length; c2++){
-                column[j] = arr2D[c][c2];
+                column[j] = arr2D[r][c];
                 j++;
-            }
-            return column;
         }
-        
-		
-		
-		return new int[1];  //replace this
+		return column;  
     }
 
     /* Write the method isNital below.  You must use getColumn,
@@ -78,12 +72,31 @@ public class NitalTester {
      *      square has at least one row.
      */
     public static boolean isNital(int[][] square){
-		/* to be written in part b */
+		int []r1 = new int [square.length];
+        int d = 0;
+		for (int r=0; r<square.length; r++){
+                r1[d] = square[r][0];
+                d++;
+        }
 		
+        int []allrows = new int [square.length];
+        int u = 0;
+		for (int r=0; r<square.length; r++){
+            for (int c=0; c<square[0].length; c++)
+                r1[u] = square[r][c];
+                u++;
         
+        if (containsRepeats(r1)==true){
+            return false;
+        }
+        if (hasAllValues(r1, allrows)==false){
+            return false;
+        }
+		
+    }
 		
 		
-        return false;   // replace this
+        return true;   // replace this
     }
 
     public static void main(String[] args){
