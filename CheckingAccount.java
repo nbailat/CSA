@@ -1,33 +1,21 @@
+package com.ch10.bank;
 
-/**
- * @author lreubenstein
- *
- */
-public class CheckingAccount extends Account {
+public class CheckingAccount extends Account{
 
-	/**
-	 * @param idNumber
-	 * @param startBal
-	 */
-	private double checkCharge;
-	
-	public CheckingAccount(int idNumber, double startBal, double cc) {
-		super(idNumber, startBal);
-		// TODO Auto-generated constructor stub
-		checkCharge = cc;
-	}
+    private double checkCharge;
 
-	public void clearCheck(double amount)
-	{
-		decreaseBalance(amount + checkCharge);
-	}
-	/* (non-Javadoc)
-	 * @see Account#monthlyInterest()
-	 */
-	@Override
-	public double monthlyInterest() {
-		// TODO Auto-generated method stub
-		return 1.0;
-	}
+    public CheckingAccount(int idNumber, double startBal, double cc) {
+        super(idNumber, startBal);
+        checkCharge = cc;
+    }
 
+    public void clearCheck(double amount)
+    {
+        decreaseBalance(amount + checkCharge);
+    }
+
+    @Override
+    public double monthlyInterest() {
+        return 1.0;
+    }
 }
